@@ -31,12 +31,14 @@ import { useEffect, useState } from 'react';
 // ];
 
 const AvailableMeals = () => {
+  
 const [ isLoading, setIsLoading] = useState(true);
 const [isHttpError, setIsHttpError] = useState();
 const [meals, setMeals] = useState([]);
 useEffect( () => {
   const fetchMeals = async () =>{
     const response = await fetch( 'https://naga-project-ff79f-default-rtdb.firebaseio.com/meals.json' );
+    console.log("apidata",response);
     const responseData = await response.json();
 
     if(!response.ok){
